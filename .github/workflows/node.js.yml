@@ -1,0 +1,69 @@
+name: Ember.js CI with Cypress
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]
+
+    steps:
+    # Step 1: Check out the repository
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # Step 2: Set up Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    # Step 3: Install dependencies
+    - name: Install dependencies
+      run: npm install
+
+    # Step 4: Run Ember.js tests (optional if you have other tests)
+    - name: Run Ember.js tests
+      run: npm test
+
+    # Step 5: Build Ember.js app
+    - name: Build Ember.js app
+      run: npm run build
+
+    # Step 6: Start the Ember.js app in the background
+    - name: Start Ember app
+      run: npm start &
+      env:
+        PORT: 4200
+
+    # Step 7: Wait for the Ember app to start
+    - name: Wait for app to start
+      uses: jakejarvis/wait-action@v1
+      with:
+        url: http://localhost:4200
+        timeout: 60
+
+    # Step 8: Run Cypress tests
+    - name: Run Cypress tests
+      uses: cypress-io/github-action@v5
+      with:
+        spec: cypress/e2e/**/*.cy.js # Adjust to match your Cypress test file structure
+
+    # Step 9: Upload Cypress artifacts (optional)
+    - name: Upload Cypress artifacts
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: cypress-artifacts
+        path: cypress/screenshots
+
