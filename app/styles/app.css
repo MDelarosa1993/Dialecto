@@ -1,1 +1,142 @@
-@import './tailwind.css'
+/* Body Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif; /* Use a rounded, clean font like Duolingo's */
+  color: #333; /* Dark gray text for contrast */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Landing Page Container */
+.landing-page {
+  display: flex; /* Use Flexbox to align content and buttons */
+  justify-content: space-between; /* Space out the headline and buttons */
+  align-items: center; /* Center items vertically */
+  width: 80%; /* Adjust the container width */
+  max-width: 1200px;
+  padding: 20px;
+}
+
+/* Content Section */
+.content {
+  flex: 1; /* Take up remaining space */
+}
+
+.landing-page h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #58cc02; /* Duolingo Green */
+  margin-bottom: 20px;
+}
+
+.landing-page p {
+  font-size: 1.5rem;
+  color: #58cc02; /* Slightly lighter gray for secondary text */
+  margin-bottom: 30px;
+}
+
+/* Buttons Section */
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: flex-end; /* Align buttons to the left of their section */
+}
+
+/* Primary Button (Get Started) */
+.primary-button {
+  background-color: #58cc02; /* Bright green */
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  padding: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 300px; /* Adjust button width */
+}
+
+.primary-button:hover {
+  background-color: #46a902; /* Slightly darker green on hover */
+}
+
+/* Secondary Button (Already Have an Account) */
+.secondary-button {
+  background-color: #ffffff; /* White background */
+  color: #58cc02; /* Duolingo Green for text */
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: 2px solid #58cc02;
+  border-radius: 30px;
+  padding: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 300px; /* Adjust button width */
+}
+
+.secondary-button:hover {
+  background-color: #f0fdf4; /* Light green background on hover */
+  color: #46a902; /* Darker green text on hover */
+}
+
+/* Media Queries for Responsiveness */
+
+/* For tablets and smaller desktops (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .landing-page {
+    flex-direction: column; /* Stack content and buttons vertically */
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Center-align text */
+  }
+
+  .content {
+    margin-bottom: 20px; /* Add spacing between content and buttons */
+  }
+
+  .buttons {
+    align-items: center; /* Center buttons horizontally */
+  }
+}
+
+/* For mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+  .landing-page {
+    width: 90%; /* Increase width to take up more space on smaller screens */
+  }
+
+  .landing-page h1 {
+    font-size: 2rem; /* Decrease headline size */
+  }
+
+  .landing-page p {
+    font-size: 1rem; /* Decrease subtext size */
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 250px; /* Reduce button width */
+    padding: 12px; /* Reduce padding for buttons */
+  }
+}
+
+/* For very small mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .primary-button,
+  .secondary-button {
+    width: 100%; /* Make buttons full-width */
+    padding: 10px; /* Further reduce padding */
+  }
+
+  .landing-page h1 {
+    font-size: 1.8rem; /* Further reduce headline size */
+  }
+
+  .landing-page p {
+    font-size: 0.9rem; /* Reduce subtext size */
+  }
+}
