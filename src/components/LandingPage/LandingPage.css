@@ -1,0 +1,72 @@
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-image: url("/assets/LandingPage.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.landing-page-title {
+  font-family: "Times New Roman", Times, serif;
+  position: absolute;
+  top: 50px; 
+  left: 10%; 
+  font-size: 100px;
+  color: white; 
+}
+
+.landing-page-button-container {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.landing-page-button-title {
+  font-family: "Times New Roman", Times, serif;
+  color: white;
+  font-size: 30px;
+}
+
+.landing-page-getstarted-button, 
+.landing-page-login-button {
+  padding: 12px 20px;  
+  font-size: 16px;  
+  width: 250px;  
+  height: 50px;  
+  display: inline-block; 
+  text-align: center;
+  border: none; 
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.2); 
+  color: white;  
+  backdrop-filter: blur(10px); 
+  transition: all 0.3s ease-in-out;
+}
+
+.landing-page-getstarted-button {
+  background-color: #72b6ff;
+  color: white;
+}
+
+.landing-page-login-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.landing-page-getstarted-button:hover, 
+.landing-page-login-button:hover {
+    background-color: rgba(255, 255, 255, 0.4); 
+    border: 2px solid rgba(255, 255, 255, 0.9); 
+    transform: scale(1.05); 
+}
