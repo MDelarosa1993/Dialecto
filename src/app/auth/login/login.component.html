@@ -1,1 +1,10 @@
-<p>login works!</p>
+<div class="auth-container">
+    <h2>Welcome Back! Log In</h2>
+    <p>Log in to continue your language learning journey.</p>
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <input class="login-emailInput" type="email" formControlName="email" placeholder="Email">
+        <input class="login-passwordInput" type="password" formControlName="password" placeholder="Password">
+        <button class="login-submitButton" type="submit" [disabled]="loginForm.invalid">Login</button>
+    </form>
+    <p>Don't have an account? <a routerLink="/register">Sign up now</a></p>
+</div>
