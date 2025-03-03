@@ -1,0 +1,74 @@
+// 🎨 Use the same variables as your landing page
+$primary-color: #4f46e5;
+$text-color: #fff;
+$background-gradient: linear-gradient(to right, #4f46e5, #3b82f6);
+
+// 📝 Register Form Styles
+.register-form {
+  background: rgba(255, 255, 255, 0.15); // Semi-transparent white like .feature-card
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 2rem;
+  text-align: center;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  // 📌 Style input fields
+  input {
+    width: 90%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: none;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: $text-color;
+    text-align: center;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 5px lighten($primary-color, 10%);
+    }
+  }
+
+  // 📌 Style the Register Button to match .lP-button
+  .register-submitButton {
+    width: 90%;
+    padding: 1rem;
+    background: $background-gradient;
+    color: $text-color;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 2px solid #ffffff;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+
+    &:hover {
+      background: linear-gradient(to right, #4338ca, #2563eb);
+    }
+
+    &:disabled {
+      background: lighten($primary-color, 20%);
+      cursor: not-allowed;
+    }
+  }
+}
+
+// 🔹 Center form within a flex container like landing page
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: $background-gradient;
+  color: $text-color;
+  text-align: center;
+}
