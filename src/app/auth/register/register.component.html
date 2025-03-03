@@ -1,8 +1,11 @@
 <div class="auth-container">
+    <h2>Sign Up for Dialecto</h2>
+    <p>Create an account to start learning languages!</p>
     <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <input class="register-emailInput" type="email" formControlName="email" placeholder="Email">
         <input class="register-passwordInput" type="password" formControlName="password" placeholder="Password">
         <button class="register-submitButton" type="submit" [disabled]="registerForm.invalid">Register</button>
     </form>
+    <p>Already have an account? <a routerLink="/login">Log in here</a></p>
 </div>
 
